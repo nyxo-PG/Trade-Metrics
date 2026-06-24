@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
-   <script src="script.js"></script>
+
   <!-- SIDEBAR -->
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-logo">
@@ -22,11 +22,11 @@
     </div>
 
     <nav class="sidebar-nav">
-      <a href="#" class="nav-item active" data-page="dashboard">
+      <a href="dashboard.html" class="nav-item active" data-page="dashboard">
         <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.8"/></svg>
         Dashboard
       </a>
-      <a href="tradelog.html" class="nav-item" data-page="tradelog">
+      <a href="#" class="nav-item" data-page="tradelog">
         <svg viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" stroke="currentColor" stroke-width="1.8"/><rect x="9" y="3" width="6" height="4" rx="1" stroke="currentColor" stroke-width="1.8"/><line x1="9" y1="12" x2="15" y2="12" stroke="currentColor" stroke-width="1.8"/><line x1="9" y1="16" x2="13" y2="16" stroke="currentColor" stroke-width="1.8"/></svg>
         Trade Log
       </a>
@@ -229,6 +229,215 @@
               <span class="streak-dot empty"></span>
               <span class="streak-dot empty"></span>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════
+         TRADE LOG PAGE
+         ══════════════════════════════════════════════════════ -->
+    <div class="page" id="page-tradelog">
+      <div class="page-header">
+        <h1>Trade Log <span class="page-tag">Journal</span></h1>
+      </div>
+
+      <!-- ADD NEW TRADE FORM -->
+      <div class="card tl-form-card">
+        <div class="tl-form-title">
+          <svg viewBox="0 0 24 24" fill="none"><line x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2"/><line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2"/></svg>
+          Add New Trade
+        </div>
+
+        <!-- ROW 1 -->
+        <div class="tl-form-grid">
+          <!-- Date & Time -->
+          <div class="form-group">
+            <label>Date & Time</label>
+            <div class="input-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/><line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="1.6"/><line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="1.6"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="1.6"/></svg>
+              <input type="date" id="tl-opendate" />
+            </div>
+          </div>
+
+          <!-- Open/Close -->
+          <div class="form-group">
+            <label>Open / Close</label>
+            <div class="input-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/><line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="1.6"/><line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="1.6"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="1.6"/></svg>
+              <input type="date" id="tl-closedate" />
+            </div>
+          </div>
+
+          <!-- Symbol -->
+          <div class="form-group">
+            <label>Symbol</label>
+            <div class="symbol-select-wrap">
+              <select id="tl-symbol">
+                <option>EURUSD</option>
+                <option>GBPUSD</option>
+                <option>GBPJPY</option>
+                <option>XAUUSD</option>
+                <option>NAS100</option>
+                <option>US30</option>
+                <option>USDJPY</option>
+                <option>AUDUSD</option>
+              </select>
+              <button class="symbol-swap" title="Swap pair">
+                <svg viewBox="0 0 24 24" fill="none"><polyline points="7,16 3,12 7,8" stroke="currentColor" stroke-width="1.8"/><polyline points="17,8 21,12 17,16" stroke="currentColor" stroke-width="1.8"/><line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="1.8"/></svg>
+              </button>
+              <button class="symbol-settings" title="More settings">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="1.6"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Direction -->
+          <div class="form-group">
+            <label>Direction</label>
+            <div class="direction-toggle" id="directionToggle">
+              <button class="dir-btn active" data-dir="Long">Long</button>
+              <button class="dir-btn neutral" data-dir="Neutral">Neutral</button>
+              <button class="dir-btn" data-dir="Short">Short</button>
+            </div>
+          </div>
+
+          <!-- Entry & Exit price (top row) -->
+          <div class="form-group span-2">
+            <label>Entry &amp; Exit price</label>
+            <div class="dual-input">
+              <input type="number" id="tl-entry" placeholder="1.00" step="0.00001" />
+              <span class="dual-sep">→</span>
+              <input type="number" id="tl-exit" placeholder="2.50" step="0.00001" />
+            </div>
+          </div>
+        </div>
+
+        <!-- ROW 2 -->
+        <div class="tl-form-grid tl-form-grid--row2">
+          <!-- Entry & Exit price duplicate (as in UI) -->
+          <div class="form-group span-2">
+            <label>Entry &amp; Exit price</label>
+            <div class="dual-input">
+              <input type="number" placeholder="1.00" step="0.00001" />
+              <span class="dual-sep">→</span>
+              <input type="number" placeholder="2.50" step="0.00001" />
+            </div>
+          </div>
+
+          <!-- Position / Lot size -->
+          <div class="form-group span-2">
+            <label>Position Size / Lot Size</label>
+            <input type="number" id="tl-lot" placeholder="1" step="0.01" />
+          </div>
+
+          <!-- Stop Loss & Take Profit -->
+          <div class="form-group span-2">
+            <label>Stop Loss &amp; Take Profit</label>
+            <div class="dual-input">
+              <input type="number" id="tl-sl" placeholder="1.00" step="0.00001" />
+              <span class="dual-sep">↔</span>
+              <input type="number" id="tl-tp" placeholder="1.50" step="0.00001" />
+            </div>
+          </div>
+
+          <!-- Fees -->
+          <div class="form-group span-2">
+            <label>Fees / Commission</label>
+            <div class="input-prefix-wrap">
+              <span class="input-prefix">$</span>
+              <input type="number" id="tl-fees" placeholder="0.00" step="0.01" />
+            </div>
+          </div>
+        </div>
+
+        <!-- ROW 3 – textarea row -->
+        <div class="tl-form-grid tl-form-grid--row3">
+          <div class="form-group">
+            <label>Strategy</label>
+            <textarea id="tl-strategy" rows="3" placeholder="Strategy..."></textarea>
+          </div>
+          <div class="form-group">
+            <label>Emotion</label>
+            <textarea id="tl-emotion" rows="3" placeholder="Emotion..."></textarea>
+          </div>
+          <div class="form-group">
+            <label>Notes</label>
+            <textarea id="tl-notes" rows="3" placeholder="Notes..."></textarea>
+          </div>
+
+          <!-- Right column: P&L display + upload -->
+          <div class="tl-right-col">
+            <div class="form-group">
+              <label>P&amp;L (realized)</label>
+              <div class="input-prefix-wrap pnl-display">
+                <span class="input-prefix">$</span>
+                <input type="number" id="tl-pnl" placeholder="0.00" step="0.01" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Running Balance</label>
+              <div class="input-prefix-wrap">
+                <span class="input-prefix">$</span>
+                <input type="number" id="tl-balance" value="62450.00" step="0.01" readonly />
+              </div>
+            </div>
+            <button class="btn-primary tl-submit-btn" id="tlSubmitBtn">
+              <svg viewBox="0 0 24 24" fill="none"><polyline points="20,6 9,17 4,12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Save Trade
+            </button>
+          </div>
+        </div>
+
+        <!-- Upload -->
+        <div class="tl-upload-row">
+          <button class="upload-btn" id="uploadChartBtn">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" stroke="currentColor" stroke-width="1.8"/><polyline points="17,8 12,3 7,8" stroke="currentColor" stroke-width="1.8"/><line x1="12" y1="3" x2="12" y2="15" stroke="currentColor" stroke-width="1.8"/></svg>
+            Upload Chart Screenshot
+          </button>
+          <input type="file" id="chartFileInput" accept="image/*" style="display:none" />
+          <span class="upload-hint" id="uploadHint">No file chosen</span>
+        </div>
+      </div>
+
+      <!-- TRADE LIST -->
+      <div class="card">
+        <div class="card-header">
+          <h2>Trade List</h2>
+          <div class="tl-list-controls">
+            <div class="search-bar tl-search">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.8"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="1.8"/></svg>
+              <input type="text" id="tlFilterInput" placeholder="Filter..." />
+            </div>
+            <button class="icon-btn" title="Column filter">
+              <svg viewBox="0 0 24 24" fill="none"><line x1="4" y1="6" x2="20" y2="6" stroke="currentColor" stroke-width="1.8"/><line x1="8" y1="12" x2="16" y2="12" stroke="currentColor" stroke-width="1.8"/><line x1="11" y1="18" x2="13" y2="18" stroke="currentColor" stroke-width="1.8"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="tl-table-wrap">
+          <table class="trades-table tl-full-table">
+            <thead>
+              <tr>
+                <th>Symbol <svg viewBox="0 0 10 14" fill="none"><path d="M5 2v10M2 9l3 3 3-3M2 5l3-3 3 3" stroke="currentColor" stroke-width="1.2"/></svg></th>
+                <th>Date (Open) <svg viewBox="0 0 10 14" fill="none"><path d="M5 2v10M2 9l3 3 3-3M2 5l3-3 3 3" stroke="currentColor" stroke-width="1.2"/></svg></th>
+                <th>Direction <svg viewBox="0 0 10 14" fill="none"><path d="M5 2v10M2 9l3 3 3-3M2 5l3-3 3 3" stroke="currentColor" stroke-width="1.2"/></svg></th>
+                <th>P&L (realized) <svg viewBox="0 0 10 14" fill="none"><path d="M5 2v10M2 9l3 3 3-3M2 5l3-3 3 3" stroke="currentColor" stroke-width="1.2"/></svg></th>
+                <th>Lot Size <svg viewBox="0 0 10 14" fill="none"><path d="M5 2v10M2 9l3 3 3-3M2 5l3-3 3 3" stroke="currentColor" stroke-width="1.2"/></svg></th>
+                <th>Strategy <svg viewBox="0 0 10 14" fill="none"><path d="M5 2v10M2 9l3 3 3-3M2 5l3-3 3 3" stroke="currentColor" stroke-width="1.2"/></svg></th>
+                <th>Emotion <svg viewBox="0 0 10 14" fill="none"><path d="M5 2v10M2 9l3 3 3-3M2 5l3-3 3 3" stroke="currentColor" stroke-width="1.2"/></svg></th>
+                <th>Notes <svg viewBox="0 0 10 14" fill="none"><path d="M5 2v10M2 9l3 3 3-3M2 5l3-3 3 3" stroke="currentColor" stroke-width="1.2"/></svg></th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="tlTableBody"></tbody>
+          </table>
+        </div>
+        <div class="tl-table-footer">
+          <span id="tlCount" class="tl-count">0 trades</span>
+          <div class="tl-pagination">
+            <button class="page-btn" id="tlPrev">‹</button>
+            <span id="tlPageInfo">1 / 1</span>
+            <button class="page-btn" id="tlNext">›</button>
           </div>
         </div>
       </div>
