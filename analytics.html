@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Trade-Metrix · Analytics &amp; Statistics</title>
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="styleanaly.css" />
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- ===================== SIDEBAR ===================== -->
+    <aside class="sidebar">
+      <div class="brand">
+        <svg class="brand-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 17L9 11L13 15L21 6" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 6H21V12" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Trade-Metrix</span>
+      </div>
+
+      <nav class="nav">
+        <a class="nav-item" href="dashboard.html" data-icon="grid">Dashboard</a>
+        <a class="nav-item" href="tradelog.html" data-icon="doc">Trade Log</a>
+        <a class="nav-item active" href="analytics.html" data-icon="trend">Analytics</a>
+        <a class="nav-item" href="#" data-icon="calendar">Calendar</a>
+        <a class="nav-item" href="#" data-icon="book">Playbook</a>
+        <a class="nav-item" href="#" data-icon="note">Notes</a>
+        <a class="nav-item" href="#" data-icon="users">Accounts</a>
+        <a class="nav-item" href="#" data-icon="target">Goals</a>
+        <a class="nav-item" href="#" data-icon="upload">Import/Export</a>
+        <a class="nav-item" href="#" data-icon="settings">Settings</a>
+      </nav>
+
+      <div class="nav nav-bottom">
+        <a class="nav-item" href="#" data-icon="upload">Import/Export</a>
+        <a class="nav-item" href="#" data-icon="settings">Settings</a>
+      </div>
+    </aside>
+
+    <!-- ===================== MAIN ===================== -->
+    <div class="main">
+
+      <!-- Topbar -->
+      <header class="topbar">
+        <div class="search">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="7"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input type="text" placeholder="Search" />
+        </div>
+        <div class="topbar-actions">
+          <button class="icon-btn" title="Open in new window" data-icon="external"></button>
+          <button class="icon-btn" title="Help" data-icon="help"></button>
+          <button class="avatar-btn" title="Account">
+            <span class="avatar"></span>
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <main class="content">
+        <h1 class="page-title">Analytics &amp; Statistics</h1>
+
+        <!-- ===================== KPI STAT CARDS ===================== -->
+        <section class="stat-grid">
+
+          <div class="stat-card">
+            <div class="stat-head">
+              <span class="stat-label">Win Rate % <span class="info-dot" title="Percentage of trades closed in profit">ⓘ</span></span>
+              <button class="dots-btn" aria-label="More options">⋯</button>
+            </div>
+            <div class="stat-value">68.4%</div>
+            <span class="pill pill-green">↑ Up</span>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-head">
+              <span class="stat-label">Avg Win vs Avg Loss <span class="info-dot" title="Average profit per winning trade vs average loss per losing trade">ⓘ</span></span>
+              <button class="dots-btn" aria-label="More options">⋯</button>
+            </div>
+            <div class="stat-value split-value">
+              <span class="text-green">$+180</span> / <span class="text-red">$-90</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-head">
+              <span class="stat-label">Profit Factor <span class="info-dot" title="Gross profit divided by gross loss">ⓘ</span></span>
+              <button class="dots-btn" aria-label="More options">⋯</button>
+            </div>
+            <div class="stat-value">3.2</div>
+            <span class="pill pill-green">● Good</span>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-head">
+              <span class="stat-label">Max Drawdown <span class="info-dot" title="Largest peak-to-trough decline in account equity">ⓘ</span></span>
+              <button class="dots-btn" aria-label="More options">⋯</button>
+            </div>
+            <div class="stat-value text-red">-5.2%</div>
+            <span class="pill pill-gray">— Loss</span>
+          </div>
+
+        </section>
+
+        <!-- ===================== WIDGET ROW ===================== -->
+        <section class="widget-grid">
+
+          <!-- Performance by Session -->
+          <div class="card widget-card">
+            <div class="widget-head">
+              <h2 class="card-title">Performance by Session</h2>
+              <button class="dots-btn" aria-label="More options">⋯</button>
+            </div>
+            <p class="widget-sub">London, NY, Asia</p>
+
+            <div class="session-rings">
+              <div class="ring-item">
+                <svg class="ring" viewBox="0 0 100 100" data-pct="8" data-max="10">
+                  <circle class="ring-track" cx="50" cy="50" r="42"></circle>
+                  <circle class="ring-progress ring-green" cx="50" cy="50" r="42"></circle>
+                </svg>
+                <div class="ring-label-wrap">
+                  <span class="ring-label text-green">+8%</span>
+                </div>
+                <span class="ring-name">London</span>
+              </div>
+
+              <div class="ring-item">
+                <svg class="ring" viewBox="0 0 100 100" data-pct="6" data-max="10">
+                  <circle class="ring-track" cx="50" cy="50" r="42"></circle>
+                  <circle class="ring-progress ring-green" cx="50" cy="50" r="42"></circle>
+                </svg>
+                <div class="ring-label-wrap">
+                  <span class="ring-label text-green">+6%</span>
+                </div>
+                <span class="ring-name">NY</span>
+              </div>
+
+              <div class="ring-item">
+                <svg class="ring" viewBox="0 0 100 100" data-pct="2" data-max="10">
+                  <circle class="ring-track" cx="50" cy="50" r="42"></circle>
+                  <circle class="ring-progress ring-gray" cx="50" cy="50" r="42"></circle>
+                </svg>
+                <div class="ring-label-wrap">
+                  <span class="ring-label text-muted">+2%</span>
+                </div>
+                <span class="ring-name">Asia</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Trade Duration Analysis -->
+          <div class="card widget-card">
+            <div class="widget-head">
+              <h2 class="card-title">Trade Duration Analysis</h2>
+              <button class="dots-btn" aria-label="More options">⋯</button>
+            </div>
+
+            <div class="bar-chart" id="durationChart">
+              <div class="bar-chart-grid">
+                <span>200</span><span>150</span><span>100</span><span>50</span><span>0</span>
+              </div>
+              <div class="bar-chart-bars">
+                <div class="bar-col"><div class="bar" style="--h: 90%;"></div><span class="bar-label">&lt;1hr</span></div>
+                <div class="bar-col"><div class="bar" style="--h: 30%;"></div><span class="bar-label">1-4hr</span></div>
+                <div class="bar-col"><div class="bar" style="--h: 18%;"></div><span class="bar-label">4-12hr</span></div>
+                <div class="bar-col"><div class="bar" style="--h: 10%;"></div><span class="bar-label">12hr+</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Heatmap Calendar -->
+          <div class="card widget-card">
+            <div class="widget-head">
+              <h2 class="card-title">Heatmap Calendar (Daily P&amp;L)</h2>
+              <button class="dots-btn" aria-label="More options">⋯</button>
+            </div>
+
+            <div class="cal-nav">
+              <button class="cal-arrow" id="calPrev" aria-label="Previous month">‹</button>
+              <span class="cal-month" id="calMonthLabel">November 2024</span>
+              <button class="cal-arrow" id="calNext" aria-label="Next month">›</button>
+            </div>
+
+            <div class="cal-grid" id="calGrid">
+              <!-- injected by analytics.js -->
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ===================== PERFORMANCE BREAKDOWN TABLE ===================== -->
+        <section class="card list-card">
+          <div class="list-header">
+            <h2 class="card-title">Performance Breakdown by Symbol</h2>
+            <div class="list-controls">
+              <div class="search small">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="7"/>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+                <input type="text" id="filterInput" placeholder="Filter..." />
+              </div>
+              <button class="icon-btn" title="Filter options">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16M7 12h10M10 19h4"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table class="trade-table" id="breakdownTable">
+              <thead>
+                <tr>
+                  <th data-sort="symbol">Symbol <span class="sort-arrow">↕</span></th>
+                  <th data-sort="trades">Total Trades <span class="sort-arrow">↕</span></th>
+                  <th data-sort="winrate">Win Rate % <span class="sort-arrow">↕</span></th>
+                  <th data-sort="pf">Profit Factor <span class="sort-arrow">↕</span></th>
+                  <th data-sort="dd">Max Drawdown <span class="sort-arrow">↕</span></th>
+                  <th data-sort="pnl">Total P&amp;L <span class="sort-arrow">↕</span></th>
+                  <th class="actions-col">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="breakdownTableBody">
+                <!-- rows injected by analytics.js -->
+              </tbody>
+            </table>
+            <p class="empty-state" id="emptyState" hidden>No symbols match your filter.</p>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="analytics.js"></script>
+</body>
+</html>
