@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Trade-Metrix · Trading Journal / Notes</title>
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="notes.css" />
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- ===================== SIDEBAR ===================== -->
+    <aside class="sidebar">
+      <div class="brand">
+        <svg class="brand-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 17L9 11L13 15L21 6" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 6H21V12" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Trade-Metrix</span>
+      </div>
+
+      <nav class="nav">
+        <a class="nav-item" href="dashboard.html" data-icon="grid">Dashboard</a>
+        <a class="nav-item" href="tradelog.html" data-icon="doc">Trade Log</a>
+        <a class="nav-item" href="analytics.html" data-icon="trend">Analytics</a>
+        <a class="nav-item" href="calendar.html" data-icon="calendar">Calendar</a>
+        <a class="nav-item" href="playbook.html" data-icon="book">Playbook</a>
+        <a class="nav-item active" href="notes.html" data-icon="note">Notes</a>
+        <a class="nav-item" href="#" data-icon="users">Accounts</a>
+        <a class="nav-item" href="goals.html" data-icon="target">Goals</a>
+        <a class="nav-item" href="#" data-icon="upload">Import/Export</a>
+        <a class="nav-item" href="#" data-icon="settings">Settings</a>
+      </nav>
+
+      <div class="nav nav-bottom">
+        <a class="nav-item" href="#" data-icon="upload">Import/Export</a>
+        <a class="nav-item" href="#" data-icon="settings">Settings</a>
+      </div>
+    </aside>
+
+    <!-- ===================== MAIN ===================== -->
+    <div class="main">
+
+      <!-- Topbar -->
+      <header class="topbar">
+        <div class="search">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="7"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input type="text" placeholder="Search" />
+        </div>
+        <div class="topbar-actions">
+          <button class="btn-quick-add" id="quickAddBtn">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Quick Add Trade
+          </button>
+          <button class="icon-btn has-dot" title="Notifications" data-icon="bell"></button>
+          <button class="icon-btn" title="Help" data-icon="help"></button>
+          <button class="avatar-btn" title="Account">
+            <span class="avatar"></span>
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <main class="content">
+        <h1 class="page-title">Trading Journal / Notes</h1>
+
+        <div class="notes-layout">
+
+          <!-- ===================== LEFT: RECENT DAILY NOTES ===================== -->
+          <section class="card notes-list-card">
+            <div class="widget-head">
+              <h2 class="card-title">Recent Daily Notes</h2>
+              <div class="widget-head-actions">
+                <button class="btn-primary btn-sm" id="newNoteBtn">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  New Daily Note
+                </button>
+                <button class="dots-btn" aria-label="More options">⋯</button>
+              </div>
+            </div>
+
+            <div class="notes-table-head">
+              <span data-sort="date">Date <span class="sort-arrow">↕</span></span>
+              <span data-sort="symbol">Symbol <span class="sort-arrow">↕</span></span>
+              <span class="actions-col">Actions</span>
+            </div>
+
+            <div class="notes-list" id="notesList">
+              <!-- injected by notes.js -->
+            </div>
+          </section>
+
+          <!-- ===================== RIGHT: NOTE VIEW ===================== -->
+          <div class="note-detail-col">
+
+            <section class="card">
+              <div class="widget-head">
+                <h2 class="card-title" id="noteViewTitle">Note View : Nov 15, 2024</h2>
+                <span class="help-dot" title="Full detail for the selected daily note">ⓘ</span>
+              </div>
+            </section>
+
+            <div class="detail-2col">
+              <section class="card">
+                <div class="widget-head">
+                  <h2 class="card-title">Daily Pre-Market Notes</h2>
+                  <button class="dots-btn" aria-label="More options">⋯</button>
+                </div>
+                <div id="premarketBlock" class="desc-block">
+                  <!-- injected by notes.js -->
+                </div>
+              </section>
+
+              <section class="card">
+                <div class="widget-head">
+                  <h2 class="card-title">Lessons Learned</h2>
+                  <span class="help-dot" title="Key takeaways logged for this session">ⓘ</span>
+                </div>
+                <ul class="checklist" id="lessonsList">
+                  <!-- injected by notes.js -->
+                </ul>
+              </section>
+            </div>
+
+            <div class="detail-2col">
+              <section class="card">
+                <div class="widget-head">
+                  <h2 class="card-title">Post-Session Review</h2>
+                  <button class="dots-btn" aria-label="More options">⋯</button>
+                </div>
+                <div id="postSessionBlock" class="desc-block">
+                  <!-- injected by notes.js -->
+                </div>
+              </section>
+
+              <section class="card">
+                <div class="widget-head">
+                  <h2 class="card-title">Focus for Tomorrow</h2>
+                  <span class="help-dot" title="What to prioritize in the next session">ⓘ</span>
+                </div>
+                <p class="desc-block" id="focusBlock">
+                  <!-- injected by notes.js -->
+                </p>
+              </section>
+            </div>
+
+            <div class="detail-2col">
+              <section class="card">
+                <div class="widget-head">
+                  <h2 class="card-title">Mindset &amp; Emotion Tracking</h2>
+                  <button class="dots-btn" aria-label="More options">⋯</button>
+                </div>
+                <p class="field-label-sm">Mood</p>
+                <div class="mood-tags" id="moodTags">
+                  <!-- injected by notes.js -->
+                </div>
+                <p class="field-label-sm">Confidence Score (out of 10)</p>
+                <div class="gauge-wrap">
+                  <svg viewBox="0 0 120 70" class="gauge-svg" id="confidenceGauge"></svg>
+                </div>
+              </section>
+
+              <section class="card">
+                <div class="widget-head">
+                  <h2 class="card-title">Linked Trades</h2>
+                  <span class="help-dot" title="Trades referenced in this note">ⓘ</span>
+                </div>
+                <div class="table-wrap">
+                  <table class="trade-table mini-table" id="linkedTradesTable">
+                    <thead>
+                      <tr><th>Symbol</th><th>Date</th><th>P&amp;L</th></tr>
+                    </thead>
+                    <tbody id="linkedTradesBody">
+                      <!-- injected by notes.js -->
+                    </tbody>
+                  </table>
+                </div>
+
+                <h3 class="card-title sub-graph-title">Interactive Note Graph</h3>
+                <p class="widget-sub">Mindset</p>
+                <svg id="moodGraph" class="strategy-graph" viewBox="0 0 320 120" preserveAspectRatio="none"></svg>
+              </section>
+            </div>
+
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="notes.js"></script>
+</body>
+</html>

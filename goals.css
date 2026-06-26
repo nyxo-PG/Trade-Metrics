@@ -1,0 +1,140 @@
+/* ============================================================
+   Trade-Metrix · Goals & Risk Management — goals.css
+   Extends styles.css and calendar.css (rings, switches, sliders, checklist).
+   ============================================================ */
+
+.goal-progress-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 14px;
+}
+
+.goal-subcard {
+  align-items: stretch;
+}
+
+.goal-ring-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+}
+
+.ring.lg {
+  width: 78px;
+  height: 78px;
+}
+
+.ring-label-wrap.lg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 78px;
+  height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ring-pct {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent-blue);
+}
+
+.goal-amount {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.goal-sep { color: var(--text-muted); font-weight: 400; }
+.goal-target { color: var(--text-muted); font-weight: 600; }
+
+.goal-bars {
+  display: flex;
+  gap: 5px;
+  margin-top: 14px;
+}
+
+.goal-bar {
+  flex: 1;
+  height: 7px;
+  border-radius: 4px;
+  background: #d6dae1;
+}
+
+.goal-bar.filled { background: var(--accent-blue); }
+
+.goal-achieved {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 10px 0 0;
+}
+
+/* ============================ RISK ROW ============================ */
+
+.risk-row {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 20px;
+  margin-bottom: 24px;
+  align-items: start;
+}
+
+.risk-settings-card {}
+
+.risk-fields-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 18px;
+  margin-top: 14px;
+}
+
+.suffixed-input .prefix {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.risk-toggles-row {
+  display: flex;
+  gap: 36px;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border-soft);
+  flex-wrap: wrap;
+}
+
+.toggle-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toggle-field label:first-child {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.checklist-card {}
+
+/* ============================ STATUS PILLS (goals table) ============================ */
+
+.status-pill.achieved { background: #dcfce7; color: #15803d; }
+.status-pill.failed { background: #fee2e2; color: #b91c1c; }
+.status-pill.in-progress { background: #fef3c7; color: #92400e; }
+
+/* ============================ RESPONSIVE ============================ */
+
+@media (max-width: 1100px) {
+  .goal-progress-grid { grid-template-columns: 1fr; }
+  .risk-row { grid-template-columns: 1fr; }
+  .risk-fields-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .goal-ring-row { flex-wrap: wrap; }
+  .risk-toggles-row { gap: 20px; }
+}

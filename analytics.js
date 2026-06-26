@@ -262,6 +262,16 @@
   });
 
   // ---------------------------------------------------------
+  // Quick Add Trade (topbar) — jump to the Trade Log form
+  // ---------------------------------------------------------
+  const quickAddBtn = document.getElementById('quickAddBtn');
+  if (quickAddBtn) {
+    quickAddBtn.addEventListener('click', () => {
+      window.location.href = 'tradelog.html';
+    });
+  }
+
+  // ---------------------------------------------------------
   // Init
   // ---------------------------------------------------------
   initRings();

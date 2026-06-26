@@ -1,0 +1,166 @@
+/* ============================================================
+   Trade-Metrix · Trading Journal / Notes — notes.css
+   Extends styles.css. Only notes-specific components live here.
+   ============================================================ */
+
+.notes-layout {
+  display: grid;
+  grid-template-columns: 1.05fr 1.45fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.notes-list-card { padding-bottom: 10px; }
+
+.notes-table-head {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 0.6fr;
+  padding: 10px 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-soft);
+  cursor: default;
+}
+
+.notes-table-head .actions-col { text-align: right; }
+.notes-table-head [data-sort] { cursor: pointer; }
+.notes-table-head [data-sort]:hover { color: var(--text-primary); }
+
+.notes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+  max-height: 560px;
+  overflow-y: auto;
+}
+
+.note-row {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 0.6fr;
+  align-items: flex-start;
+  gap: 10px;
+  background: #fff;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.note-row:hover { border-color: var(--accent-blue); }
+.note-row.active { background: var(--accent-blue-soft); border-color: var(--accent-blue); }
+
+.note-row-date {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.note-row-pnl {
+  font-size: 12.5px;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.note-row-symbol {
+  font-size: 13px;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.note-row-summary {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 4px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.note-row-actions {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+/* ============================ NOTE DETAIL ============================ */
+
+.note-detail-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.field-label-sm {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin: 0 0 8px;
+}
+
+.mood-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.mood-tag {
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  color: #4b5563;
+}
+
+.mood-tag.selected.calm { background: #dbeafe; color: #1d4ed8; }
+.mood-tag.selected.confident { background: #dcfce7; color: #15803d; }
+.mood-tag.selected.fearful { background: #fee2e2; color: #b91c1c; }
+.mood-tag.selected.fomo { background: #fef3c7; color: #92400e; }
+.mood-tag.selected.irritated { background: #fee2e2; color: #b91c1c; }
+
+.sentiment-dots {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.sentiment-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.sub-graph-title {
+  margin-top: 18px;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
+.gauge-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 4px 0 2px;
+}
+
+.gauge-svg {
+  width: 160px;
+  height: 95px;
+}
+
+/* ============================ RESPONSIVE ============================ */
+
+@media (max-width: 1150px) {
+  .notes-layout { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 700px) {
+  .detail-2col { grid-template-columns: 1fr; }
+  .notes-table-head, .note-row { grid-template-columns: 1fr 1fr; }
+  .notes-table-head .actions-col, .note-row-actions { display: none; }
+}
